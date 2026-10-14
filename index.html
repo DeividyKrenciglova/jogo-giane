@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecoplays — Coleta Seletiva</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">♻️</span>
+        <div>
+          <h1>Ecoplays</h1>
+          <p><span id="mapName">Praça Central</span> · coleta seletiva</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Pontos</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Tempo</span>
+          <strong id="time">75</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Combo</span>
+          <strong id="combo">x1</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">CO₂ evitado</span>
+          <strong id="co2">0.0 kg</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="meters">
+      <div class="meter">
+        <div class="meter-top">
+          <span>Fôlego</span>
+          <b id="sprintState">🔒 faça 10 acertos</b>
+        </div>
+        <div class="bar"><i id="staminaBar"></i></div>
+      </div>
+      <div class="meter">
+        <div class="meter-top">
+          <span>Próxima meta</span>
+          <b id="milestoneText">10 acertos</b>
+        </div>
+        <div class="bar goal"><i id="milestoneBar"></i></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <canvas id="game" width="960" height="600"></canvas>
+
+      <div class="overlay" id="overlay">
+        <div class="card">
+          <h2 id="cardTitle">Bem-vindo ao Ecoplays!</h2>
+          <p id="cardText">
+            Você é o agente de reciclagem do bairro. Corra pela praça,
+            pegue os resíduos e leve cada um até a lixeira correta.
+          </p>
+          <div class="legend" id="legend">
+            <div class="legend-item"><span class="swatch papel"></span><b>Azul</b> — Papel</div>
+            <div class="legend-item"><span class="swatch plastico"></span><b>Vermelho</b> — Plástico</div>
+            <div class="legend-item"><span class="swatch metal"></span><b>Amarelo</b> — Metal</div>
+            <div class="legend-item"><span class="swatch vidro"></span><b>Verde</b> — Vidro</div>
+          </div>
+          <div class="keys" id="keysHint">
+            <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> ou <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> para mover</span>
+            <span><kbd>Shift</kbd> para <b>correr</b> — liberado nos 10 primeiros acertos</span>
+            <span>Também vale clicar e arrastar; no celular, arraste o dedo</span>
+          </div>
+          <div class="rules">
+            <div><b>10 acertos</b> → +10s e sprint liberado</div>
+            <div><b>25, 50, 75…</b> → +15s e um mapa novo</div>
+            <div>🔋 O fôlego <b>só volta reciclando</b> (+1 por resíduo, barra cheia a cada 10)</div>
+          </div>
+          <div class="results" id="results" hidden></div>
+          <button class="btn" id="startBtn">Começar a jogar</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="tipbar">
+      <span class="tip">💡 Resíduo em lixeira errada vira <b>aterro sanitário</b> e polui o meio ambiente.</span>
+      <div class="actions">
+        <button class="btn sprint locked" id="sprintBtn">Correr <kbd>Shift</kbd></button>
+        <button class="btn ghost" id="restartBtn">Reiniciar</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
